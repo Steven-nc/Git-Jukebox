@@ -1,0 +1,24 @@
+(Ouvrir avec Bloc-notes de préférence)
+Pour ajouter un CD ou un DVD, je rentre directement les données à ajouter dans le
+tableau d'affichage sur une nouvelle ligne. Je peux en ajouter plusieurs en même 
+temps c'est-à-dire rentrer les données de deux nouveaux CD/DVD sur deux nouvelles
+lignes puis sélectionner ces deux lignes (en cliquant sur la case vide et grise
+tout à gauche des lignes voulues) ouis cliquer sur ajouter. 
+
+Même procédé pour supprimer un CD/DVD, je peux en supprimer plusieurs en même
+temps. 
+
+J'ai voulu en faire de même pour la modification (modifier directement dans le 
+tableau mais j'ai pensé que vous voudriez qu'il y ait une redirection vers un 
+autre formulaire dans le projet, j'ai donc fais un formulaire pour la modification.
+
+Si l'application ne fonctionne pas, pourriez-vous vérifier que les références
+ClassJukeox.dll, MySqlData.dll, et MySqlWeb.dll sont bien ajoutées. 
+
+Je pense ajouter d'autre fonctionnalitées comme par exemple une interface adhérent
+permettant à ces utilisateurs d'emprunter des livres de la médiathèque.
+J'adapterai mon application au fur et à mesure de l'ajout de cette fonction mais
+j'aimerai une confirmation pour savoir si je peux le faire en restant dans le cadre
+du projet. 
+
+Merci 

@@ -1,0 +1,16 @@
+c:\users\steve\documents\visual studio 2015\Projects\ClassJukeox\ClassJukeox\bin\Debug\ClassJukeox.dll
+c:\users\steve\documents\visual studio 2015\Projects\ClassJukeox\ClassJukeox\bin\Debug\ClassJukeox.pdb
+c:\users\steve\documents\visual studio 2015\Projects\ClassJukeox\ClassJukeox\obj\Debug\ClassJukeox.dll
+c:\users\steve\documents\visual studio 2015\Projects\ClassJukeox\ClassJukeox\obj\Debug\ClassJukeox.pdb
+C:\Users\steve\Documents\Visual Studio 2015\Projects\ClassJukeox\ClassJukeox\obj\Debug\ClassJukeox.csprojResolveAssemblyReference.cache
+C:\Users\steve\documents\visual studio 2015\Projects\ClassJukeox\ClassJukeox\bin\Debug\MySql.Data.dll
+C:\Users\steve\documents\visual studio 2015\Projects\ClassJukeox\ClassJukeox\bin\Debug\MySql.Web.dll
+C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\ClassJukeox\ClassJukeox\bin\Debug\ClassJukeox.dll
+C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\ClassJukeox\ClassJukeox\bin\Debug\ClassJukeox.pdb
+C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\ClassJukeox\ClassJukeox\bin\Debug\MySql.Data.dll
+C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\ClassJukeox\ClassJukeox\bin\Debug\MySql.Web.dll
+C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\ClassJukeox\ClassJukeox\bin\Debug\Google.Protobuf.dll
+C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\ClassJukeox\ClassJukeox\bin\Debug\MySql.Data.xml
+C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\ClassJukeox\ClassJukeox\bin\Debug\MySql.Web.xml
+C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\ClassJukeox\ClassJukeox\obj\Debug\ClassJukeox.dll
+C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\ClassJukeox\ClassJukeox\obj\Debug\ClassJukeox.pdb
