@@ -73,6 +73,12 @@
     <Compile Include="formAdh.Designer.cs">
       <DependentUpon>formAdh.cs</DependentUpon>
     </Compile>
+    <Compile Include="formAdhModif.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdhModif.Designer.cs">
+      <DependentUpon>formAdhModif.cs</DependentUpon>
+    </Compile>
     <Compile Include="formCD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formAdh.resx">
       <DependentUpon>formAdh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAdhModif.resx">
+      <DependentUpon>formAdhModif.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formCD.resx">
       <DependentUpon>formCD.cs</DependentUpon>

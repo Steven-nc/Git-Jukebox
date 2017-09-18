@@ -18,7 +18,7 @@ namespace ClassJukeox
         private int nbEmpruntsDepasses;
         private int nbEmpruntsEnCours;
 
-        public string getNom
+        public string Nom
         {
             get
             {
@@ -31,7 +31,7 @@ namespace ClassJukeox
             }
         }
 
-        public string getPrenom
+        public string Prenom
         {
             get
             {
@@ -44,7 +44,7 @@ namespace ClassJukeox
             }
         }
 
-        public string getAdressemail
+        public string Adressemail
         {
             get
             {
@@ -57,7 +57,7 @@ namespace ClassJukeox
             }
         }
 
-        public DateTime getDateInscription
+        public DateTime DateInscription
         {
             get
             {
@@ -70,7 +70,7 @@ namespace ClassJukeox
             }
         }
 
-        public int getNbEmprunts
+        public int NbEmprunts
         {
             get
             {
@@ -83,7 +83,7 @@ namespace ClassJukeox
             }
         }
 
-        public int getNbEmpruntsDepasses
+        public int NbEmpruntsDepasses
         {
             get
             {
@@ -96,7 +96,7 @@ namespace ClassJukeox
             }
         }
 
-        public int getNbEmpruntsEnCours
+        public int NbEmpruntsEnCours
         {
             get
             {
@@ -118,6 +118,11 @@ namespace ClassJukeox
             nbEmprunts = nbE;
             nbEmpruntsDepasses = nbD;
             nbEmpruntsEnCours = nbEEC;
+        }
+
+        public Adherent afficher(Adherent unAdherent)
+        {
+            return unAdherent;
         }
     }
 }

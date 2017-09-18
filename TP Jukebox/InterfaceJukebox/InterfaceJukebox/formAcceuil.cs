@@ -36,7 +36,9 @@ namespace InterfaceJukebox
 
         private void btnAdh_Click(object sender, EventArgs e)
         {
-
+            formAdh menuAdh = new formAdh();
+            menuAdh.Show();
+            this.Hide();
         }
     }
 }

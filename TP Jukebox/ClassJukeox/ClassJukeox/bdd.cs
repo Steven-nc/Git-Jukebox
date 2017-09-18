@@ -298,5 +298,108 @@ namespace ClassJukeox
 
         #endregion
 
+        #region "Methodes Adhérents"
+        public void addAdh(Adherent adherent)
+        {
+            Bdd bdd = new Bdd();
+            int id;
+            try
+            {
+                // Ouverture de la connexion SQL
+                bdd.GetConnection().Open();
+
+                // Création d'une commande SQL en fonction de l'objet connection
+                MySqlCommand cmd = bdd.GetConnection().CreateCommand();
+                MySqlCommand cmdId = new MySqlCommand("select max(id)+1 from adherent", bdd.GetConnection());
+                string monId = cmdId.ExecuteScalar().ToString();
+                if (monId == "")
+                {
+                    id = 1;
+                }
+                else
+                {
+                    id = Convert.ToInt32(monId);
+                }
+
+                // Requête SQL
+                cmd.CommandText = "INSERT INTO adherent (id,nom, prenom, adressemail, dateI, nbEmprunts, nbEmpruntsDepasses, nbEmpruntsEnCours) VALUES  (@id,@nom, @prenom, @adressemail, @dateI, @nbE, @nbED, @nbEEC);";
+
+                // utilisation de l'objet contact passé en paramètre
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@nom", adherent.Nom);
+                cmd.Parameters.AddWithValue("@prenom", adherent.Prenom);
+                cmd.Parameters.AddWithValue("@adressemail", adherent.Adressemail);
+                cmd.Parameters.AddWithValue("@dateI", adherent.DateInscription);
+                cmd.Parameters.AddWithValue("@nbE", adherent.NbEmprunts);
+                cmd.Parameters.AddWithValue("@nbED", adherent.NbEmpruntsDepasses);
+                cmd.Parameters.AddWithValue("@nbEEC", adherent.NbEmpruntsEnCours);
+
+                // Exécution de la commande SQL
+                cmd.ExecuteNonQuery();
+
+                // Fermeture de la connexion
+                bdd.GetConnection().Close();
+            }
+            catch
+            {
+                // Gestion des erreurs :
+
+            }
+        }
+
+        public void deleteAdh(Adherent adherent)
+        {
+            Bdd bdd = new Bdd();
+            int id;
+            try
+            {
+                // Ouverture de la connexion SQL
+                bdd.GetConnection().Open();
+
+                // Création d'une commande SQL en fonction de l'objet connection
+                MySqlCommand cmd = bdd.GetConnection().CreateCommand();
+
+
+                cmd.CommandText = "DELETE FROM ADHERENT WHERE nom = @nom and prenom = @prenom and adressemail = @adressemail;";
+                // utilisation de l'objet contact passé en paramètre
+                cmd.Parameters.AddWithValue("@nom", adherent.Nom);
+                cmd.Parameters.AddWithValue("@prenom", adherent.Prenom);
+                cmd.Parameters.AddWithValue("@adressemail", adherent.Adressemail);
+
+                // Exécution de la commande SQL
+                cmd.ExecuteNonQuery();
+                cmd.Parameters.Clear();
+
+                // Fermeture de la connexion
+                bdd.GetConnection().Close();
+            }
+            catch
+            {
+                // Gestion des erreurs :
+            }
+        }
+
+        public void updateAdh(Adherent adherent, int id)
+        {
+            Bdd bdd = new Bdd();
+            bdd.GetConnection().Open();
+            MySqlCommand cmd = bdd.GetConnection().CreateCommand();
+            //Requête de modification du CD passé en paramètre avec son id que j'aurai récupéré auparavant
+            cmd.CommandText = "update adherent set nom = @nom, prenom=@prenom, adressemail=@adressemail, dateI=@dateIns, nbEmprunts = @nbE, nbEmpruntsDepasses = @nbED, nbEmpruntsEnCours=@nbEEC WHERE id=@id;";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@nom", adherent.Nom);
+            cmd.Parameters.AddWithValue("@prenom", adherent.Prenom);
+            cmd.Parameters.AddWithValue("@adressemail", adherent.Adressemail);
+            cmd.Parameters.AddWithValue("@dateIns", adherent.DateInscription);
+            cmd.Parameters.AddWithValue("@nbE", adherent.NbEmprunts);
+            cmd.Parameters.AddWithValue("@nbED", adherent.NbEmpruntsDepasses);
+            cmd.Parameters.AddWithValue("@nbEEC", adherent.NbEmpruntsEnCours);
+            cmd.ExecuteNonQuery();
+            bdd.GetConnection().Close();
+        }
+        #endregion
+
     }
 }
+
+

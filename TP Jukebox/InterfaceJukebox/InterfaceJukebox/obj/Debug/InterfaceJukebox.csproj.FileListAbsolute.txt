@@ -35,3 +35,5 @@ C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\InterfaceJukebox
 C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\InterfaceJukebox\InterfaceJukebox\bin\Debug\MySql.Data.xml
 C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\InterfaceJukebox\InterfaceJukebox\bin\Debug\MySql.Web.xml
 C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\InterfaceJukebox\InterfaceJukebox\obj\Debug\InterfaceJukebox.csprojResolveAssemblyReference.cache
+C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\InterfaceJukebox\InterfaceJukebox\obj\Debug\InterfaceJukebox.formAdh.resources
+C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\InterfaceJukebox\InterfaceJukebox\obj\Debug\InterfaceJukebox.formAdhModif.resources
