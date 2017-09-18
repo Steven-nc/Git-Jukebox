@@ -158,6 +158,7 @@ namespace InterfaceJukebox
             Acceuil acceuil = new Acceuil();
             acceuil.Show();
             this.Close();
+            //MessageBox.Show("My message here");
         }
 
         private void btnsuppcd_Click(object sender, EventArgs e)

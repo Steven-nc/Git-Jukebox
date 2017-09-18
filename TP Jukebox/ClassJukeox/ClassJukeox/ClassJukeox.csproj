@@ -48,10 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adherent.cs" />
     <Compile Include="bdd.cs" />
     <Compile Include="Biblio.cs" />
     <Compile Include="CD.cs" />
     <Compile Include="DVD.cs" />
+    <Compile Include="FicheEmprunt.cs" />
     <Compile Include="Support.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

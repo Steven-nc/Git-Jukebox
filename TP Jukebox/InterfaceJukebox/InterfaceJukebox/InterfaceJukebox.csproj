@@ -67,6 +67,12 @@
     <Compile Include="formAcceuil.Designer.cs">
       <DependentUpon>formAcceuil.cs</DependentUpon>
     </Compile>
+    <Compile Include="formAdh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdh.Designer.cs">
+      <DependentUpon>formAdh.cs</DependentUpon>
+    </Compile>
     <Compile Include="formCD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formAcceuil.resx">
       <DependentUpon>formAcceuil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAdh.resx">
+      <DependentUpon>formAdh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formCD.resx">
       <DependentUpon>formCD.cs</DependentUpon>

@@ -33,5 +33,10 @@ namespace InterfaceJukebox
             Environment.Exit(0);
         }
         #endregion
+
+        private void btnAdh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

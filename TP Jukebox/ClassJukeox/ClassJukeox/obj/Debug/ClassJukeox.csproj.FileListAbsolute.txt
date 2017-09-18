@@ -14,3 +14,4 @@ C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\ClassJukeox\Clas
 C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\ClassJukeox\ClassJukeox\bin\Debug\MySql.Web.xml
 C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\ClassJukeox\ClassJukeox\obj\Debug\ClassJukeox.dll
 C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\ClassJukeox\ClassJukeox\obj\Debug\ClassJukeox.pdb
+C:\Users\steve\Documents\Visual Studio 2015\Projects\TP Jukebox\ClassJukeox\ClassJukeox\obj\Debug\ClassJukeox.csprojResolveAssemblyReference.cache

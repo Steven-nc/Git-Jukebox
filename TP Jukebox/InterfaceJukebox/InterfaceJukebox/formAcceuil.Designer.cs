@@ -33,21 +33,22 @@
             this.btnmenucd = new System.Windows.Forms.Button();
             this.btnmenudvd = new System.Windows.Forms.Button();
             this.btnquitter = new System.Windows.Forms.Button();
+            this.btnAdh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(96, 48);
+            this.label1.Location = new System.Drawing.Point(82, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 13);
+            this.label1.Size = new System.Drawing.Size(210, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "BIENVENUE SUR M2L-JUKEBOX";
+            this.label1.Text = "BIENVENUE SUR BORABORA JUKEBOX";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(96, 82);
+            this.label2.Location = new System.Drawing.Point(104, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(175, 13);
             this.label2.TabIndex = 1;
@@ -75,7 +76,7 @@
             // 
             // btnquitter
             // 
-            this.btnquitter.Location = new System.Drawing.Point(153, 307);
+            this.btnquitter.Location = new System.Drawing.Point(145, 381);
             this.btnquitter.Name = "btnquitter";
             this.btnquitter.Size = new System.Drawing.Size(80, 23);
             this.btnquitter.TabIndex = 4;
@@ -83,11 +84,22 @@
             this.btnquitter.UseVisualStyleBackColor = true;
             this.btnquitter.Click += new System.EventHandler(this.btnquitter_Click);
             // 
+            // btnAdh
+            // 
+            this.btnAdh.Location = new System.Drawing.Point(107, 283);
+            this.btnAdh.Name = "btnAdh";
+            this.btnAdh.Size = new System.Drawing.Size(162, 44);
+            this.btnAdh.TabIndex = 5;
+            this.btnAdh.Text = "ADHERENT";
+            this.btnAdh.UseVisualStyleBackColor = true;
+            this.btnAdh.Click += new System.EventHandler(this.btnAdh_Click);
+            // 
             // Acceuil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 362);
+            this.ClientSize = new System.Drawing.Size(384, 467);
+            this.Controls.Add(this.btnAdh);
             this.Controls.Add(this.btnquitter);
             this.Controls.Add(this.btnmenudvd);
             this.Controls.Add(this.btnmenucd);
@@ -107,6 +119,7 @@
         private System.Windows.Forms.Button btnmenucd;
         private System.Windows.Forms.Button btnmenudvd;
         private System.Windows.Forms.Button btnquitter;
+        private System.Windows.Forms.Button btnAdh;
     }
 }
 
