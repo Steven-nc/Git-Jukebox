@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassJukeox
 {
     public class Adherent
     {
-        //https://www.epi.asso.fr/revue/articles/a0509b.htm
+        /*https://www.epi.asso.fr/revue/articles/a0509b.htm
+        CREATE DEFINER=`root`@`localhost` EVENT `maj` ON SCHEDULE EVERY 1 DAY STARTS '2017-09-20 00:00:00' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE jukebox.ficheemprunt SET depasse = 1 WHERE dateLimite<NOW();
+        SET GLOBAL event_scheduler="ON";
+        Pour que l'évènement fonctionne, il faut modifié l'état du plannificateur d'évènements à "Activé" par défaut dans
+        le fichier my.ini de wamp (event_scheduler=on)*/
 
         private string nom;
         private string prenom;

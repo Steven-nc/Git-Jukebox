@@ -117,7 +117,7 @@
             this.Controls.Add(this.btnAddAdh);
             this.Controls.Add(this.dgvAdh);
             this.Name = "formAdh";
-            this.Text = "formAdh";
+            this.Text = "Liste des adhérents";
             this.Load += new System.EventHandler(this.formAdh_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdh)).EndInit();
             this.ResumeLayout(false);

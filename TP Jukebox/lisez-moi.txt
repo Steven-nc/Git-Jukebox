@@ -1,4 +1,3 @@
-//TEST POUR GIT
 (Ouvrir avec Bloc-notes de préférence)
 Pour ajouter un CD ou un DVD, je rentre directement les données à ajouter dans le
 tableau d'affichage sur une nouvelle ligne. Je peux en ajouter plusieurs en même 

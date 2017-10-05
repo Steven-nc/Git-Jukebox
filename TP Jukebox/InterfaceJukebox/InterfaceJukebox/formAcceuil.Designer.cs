@@ -29,36 +29,27 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnmenucd = new System.Windows.Forms.Button();
             this.btnmenudvd = new System.Windows.Forms.Button();
             this.btnquitter = new System.Windows.Forms.Button();
             this.btnAdh = new System.Windows.Forms.Button();
+            this.btnEmprunt = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(82, 48);
+            this.label1.Location = new System.Drawing.Point(83, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(210, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "BIENVENUE SUR BORABORA JUKEBOX";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(104, 96);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Choisissez le support de votre choix";
-            // 
             // btnmenucd
             // 
-            this.btnmenucd.Location = new System.Drawing.Point(107, 147);
+            this.btnmenucd.Location = new System.Drawing.Point(109, 74);
             this.btnmenucd.Name = "btnmenucd";
-            this.btnmenucd.Size = new System.Drawing.Size(163, 44);
+            this.btnmenucd.Size = new System.Drawing.Size(162, 44);
             this.btnmenucd.TabIndex = 2;
             this.btnmenucd.Text = "CD";
             this.btnmenucd.UseVisualStyleBackColor = true;
@@ -66,7 +57,7 @@
             // 
             // btnmenudvd
             // 
-            this.btnmenudvd.Location = new System.Drawing.Point(107, 216);
+            this.btnmenudvd.Location = new System.Drawing.Point(109, 124);
             this.btnmenudvd.Name = "btnmenudvd";
             this.btnmenudvd.Size = new System.Drawing.Size(162, 44);
             this.btnmenudvd.TabIndex = 3;
@@ -76,7 +67,7 @@
             // 
             // btnquitter
             // 
-            this.btnquitter.Location = new System.Drawing.Point(145, 381);
+            this.btnquitter.Location = new System.Drawing.Point(150, 291);
             this.btnquitter.Name = "btnquitter";
             this.btnquitter.Size = new System.Drawing.Size(80, 23);
             this.btnquitter.TabIndex = 4;
@@ -86,7 +77,7 @@
             // 
             // btnAdh
             // 
-            this.btnAdh.Location = new System.Drawing.Point(107, 283);
+            this.btnAdh.Location = new System.Drawing.Point(109, 174);
             this.btnAdh.Name = "btnAdh";
             this.btnAdh.Size = new System.Drawing.Size(162, 44);
             this.btnAdh.TabIndex = 5;
@@ -94,19 +85,29 @@
             this.btnAdh.UseVisualStyleBackColor = true;
             this.btnAdh.Click += new System.EventHandler(this.btnAdh_Click);
             // 
+            // btnEmprunt
+            // 
+            this.btnEmprunt.Location = new System.Drawing.Point(109, 224);
+            this.btnEmprunt.Name = "btnEmprunt";
+            this.btnEmprunt.Size = new System.Drawing.Size(162, 44);
+            this.btnEmprunt.TabIndex = 6;
+            this.btnEmprunt.Text = "EMPRUNT";
+            this.btnEmprunt.UseVisualStyleBackColor = true;
+            this.btnEmprunt.Click += new System.EventHandler(this.btnEmprunt_Click);
+            // 
             // Acceuil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 467);
+            this.ClientSize = new System.Drawing.Size(384, 342);
+            this.Controls.Add(this.btnEmprunt);
             this.Controls.Add(this.btnAdh);
             this.Controls.Add(this.btnquitter);
             this.Controls.Add(this.btnmenudvd);
             this.Controls.Add(this.btnmenucd);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Acceuil";
-            this.Text = "M2L-JukeBox";
+            this.Text = "Acceuil JukeBox";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,11 +116,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnmenucd;
         private System.Windows.Forms.Button btnmenudvd;
         private System.Windows.Forms.Button btnquitter;
         private System.Windows.Forms.Button btnAdh;
+        private System.Windows.Forms.Button btnEmprunt;
     }
 }
 

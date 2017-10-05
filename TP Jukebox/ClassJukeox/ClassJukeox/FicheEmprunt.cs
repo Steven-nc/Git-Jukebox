@@ -8,45 +8,75 @@ namespace ClassJukeox
 {
     public class FicheEmprunt
     {
-        private DateTime DateEmprunt;
-        private DateTime DateLimite;
+
+        private Support unSupport;
+        private Adherent unAdherent;
+        private DateTime dateEmprunt;
+        private DateTime dateLimite;
         private bool depasse;
 
-
-        public FicheEmprunt(DateTime DateE, DateTime DateL, bool depasse)
+        public FicheEmprunt(Support unSupport, Adherent unAdherent, DateTime dateEmprunt, DateTime dateLimite, bool depasse)
         {
-            DateEmprunt = DateE;
-            DateLimite = DateL;
+            this.unSupport = unSupport;
+            this.unAdherent = unAdherent;
+            this.dateEmprunt = dateEmprunt;
+            this.dateLimite = dateLimite;
             this.depasse = depasse;
         }
 
-        public DateTime getDateEmprunt
+        public Support UnSupport
         {
             get
             {
-                return DateEmprunt;
+                return unSupport;
             }
 
             set
             {
-                DateEmprunt = value;
+                unSupport = value;
             }
         }
 
-        public DateTime getDateLimite
+        public Adherent UnAdherent
         {
             get
             {
-                return DateLimite;
+                return unAdherent;
             }
 
             set
             {
-                DateLimite = value;
+                unAdherent = value;
             }
         }
 
-        public bool getDepasse
+        public DateTime DateEmprunt
+        {
+            get
+            {
+                return dateEmprunt;
+            }
+
+            set
+            {
+                dateEmprunt = value;
+            }
+        }
+
+        public DateTime DateLimite
+        {
+            get
+            {
+                return dateLimite;
+            }
+
+            set
+            {
+                dateLimite = value;
+            }
+        }
+
+        public bool Depasse
         {
             get
             {

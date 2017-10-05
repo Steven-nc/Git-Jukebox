@@ -19,6 +19,7 @@ namespace InterfaceJukebox
             InitializeComponent();
         }
 
+        //Initialisation du tableau
         private void formAdh_Load_1(object sender, EventArgs e)
         {
             Bdd bdd = new Bdd();
@@ -49,6 +50,7 @@ namespace InterfaceJukebox
             }
         }
 
+        //Bouton AJOUTER
         private void btnAddAdh_Click(object sender, EventArgs e)
         {
             try
@@ -60,7 +62,7 @@ namespace InterfaceJukebox
                 //Création d'une collection de lignes sélectionées 
                 DataGridViewSelectedRowCollection maliste = dgvAdh.SelectedRows;
 
-                //Pour chaque ligne on créé le CD correspondant et on l'insert dans la base
+                //Pour chaque ligne on créé l'adhérent correspondant et on l'insert dans la base
                 foreach (DataGridViewRow row in maliste)
                 {
 
@@ -70,10 +72,10 @@ namespace InterfaceJukebox
                     string adressemail = row.Cells[3].Value.ToString();
                     DateTime dateI = DateTime.Now;
 
-                    //Création du CD
+                    //Création de l'adhérent
                     Adherent adherent = new Adherent(nom, prenom, adressemail, dateI, 0, 0, 0);
 
-                    //Insertion du CD
+                    //Insertion de l'adhérent
                     bdd.addAdh(adherent);
                 }
 
@@ -81,23 +83,24 @@ namespace InterfaceJukebox
 
                 if (maliste.Count > 1)
                 {
-                    txtnotif.Text = "Les lignes ont été ajoutées.";
+                    txtnotif.Text = "Les adhérents ont été ajoutés.";
                 }
                 else
                 {
                     if (maliste.Count == 1)
                     {
-                        txtnotif.Text = "La ligne a été ajoutée.";
+                        txtnotif.Text = "L'adhérent a été ajoutée.";
                     }
                 }
             }
             catch (Exception ex)
             {
                 //Gestion erreurs
-                //label1.Text = "Une erreur s'est produite pendant l'ajout ! " + ex.Message;
+                txtnotif.Text = "Une erreur s'est produite pendant l'ajout ! " + ex.Message;
             }
         }
 
+        //Bouton SUPPRIMER
         private void btnSuppAdh_Click(object sender, EventArgs e)
         {
             try
@@ -109,7 +112,7 @@ namespace InterfaceJukebox
                 //Récupère les lignes sélectionnées dans une collection 
                 DataGridViewSelectedRowCollection maliste = dgvAdh.SelectedRows;
 
-                //Pour chaque ligne, on créé le CD correspondant et on le supprime
+                //Pour chaque ligne, on créé l'adhérent correspondant et on le supprime
                 foreach (DataGridViewRow row in maliste)
                 {
                     string nom = row.Cells[1].Value.ToString();
@@ -120,6 +123,7 @@ namespace InterfaceJukebox
                     int nbED = Convert.ToInt32(row.Cells[6].Value.ToString());
                     int nbEEC = Convert.ToInt32(row.Cells[7].Value.ToString());
 
+                    //Création de l'adhérent avec les informations récupérées du tableau 
                     Adherent adherent = new Adherent(nom, prenom, adressemail, dateIns, nbE, nbED, nbEEC);
                     bdd.deleteAdh(adherent);
                     dgvAdh.Rows.RemoveAt(this.dgvAdh.SelectedRows[0].Index);
@@ -145,6 +149,7 @@ namespace InterfaceJukebox
             }
         }
 
+        //Bouton ACTUALISER, recharge le tableau de la même façon qu'il est initialisé
         private void btnActuAdh_Click(object sender, EventArgs e)
         {
             Bdd bdd = new Bdd();
@@ -175,6 +180,7 @@ namespace InterfaceJukebox
             }
         }
 
+        //Bouton MODIFIER, récupère les informations de l'adhérent à modifier et le passe au formulaire formAdhModif
         private void btnModifAdh_Click(object sender, EventArgs e)
         {
             try
@@ -182,7 +188,7 @@ namespace InterfaceJukebox
                 Bdd bdd = new Bdd();
                 bdd.GetConnection().Open();
                 int index = dgvAdh.SelectedRows[0].Index;
-
+                //Récupère informations de l'adhérents à modifier
                 string nom = dgvAdh.Rows[index].Cells[1].Value.ToString();
                 string prenom = dgvAdh.Rows[index].Cells[2].Value.ToString();
                 string adressemail = dgvAdh.Rows[index].Cells[3].Value.ToString();
@@ -190,7 +196,7 @@ namespace InterfaceJukebox
                 int nbE = Convert.ToInt32(dgvAdh.Rows[index].Cells[5].Value.ToString());
                 int nbED = Convert.ToInt32(dgvAdh.Rows[index].Cells[6].Value.ToString());
                 int nbEEC = Convert.ToInt32(dgvAdh.Rows[index].Cells[7].Value.ToString());
-
+                //Création de l'adhérent pour le passer au formulaire formAdhModif
                 Adherent adherent = new Adherent(nom, prenom, adressemail, dateIns, nbE, nbED, nbEEC);
 
                 bdd.GetConnection().Close();
@@ -206,6 +212,7 @@ namespace InterfaceJukebox
             }
         }
 
+        //Bouton RETOUR
         private void btnretour_Click(object sender, EventArgs e)
         {
             Acceuil acceuil = new Acceuil();

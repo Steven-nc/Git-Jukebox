@@ -79,6 +79,12 @@
     <Compile Include="formAdhModif.Designer.cs">
       <DependentUpon>formAdhModif.cs</DependentUpon>
     </Compile>
+    <Compile Include="formAjoutEmprunt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAjoutEmprunt.Designer.cs">
+      <DependentUpon>formAjoutEmprunt.cs</DependentUpon>
+    </Compile>
     <Compile Include="formCD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,12 @@
     <Compile Include="formDVDmodif.Designer.cs">
       <DependentUpon>formDVDmodif.cs</DependentUpon>
     </Compile>
+    <Compile Include="formEmprunt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formEmprunt.Designer.cs">
+      <DependentUpon>formEmprunt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formAcceuil.resx">
@@ -113,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formAdhModif.resx">
       <DependentUpon>formAdhModif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAjoutEmprunt.resx">
+      <DependentUpon>formAjoutEmprunt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formCD.resx">
       <DependentUpon>formCD.cs</DependentUpon>
@@ -125,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formDVDmodif.resx">
       <DependentUpon>formDVDmodif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formEmprunt.resx">
+      <DependentUpon>formEmprunt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

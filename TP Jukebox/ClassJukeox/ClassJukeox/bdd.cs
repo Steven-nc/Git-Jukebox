@@ -37,6 +37,7 @@ namespace ClassJukeox
 
         #region "Méthodes CD"
 
+        //Supprime le CD de la table CD et supprime son id dans la table SUPPORT
         public void DeleteCd(CD cd)
         {
             Bdd bdd = new Bdd();
@@ -46,10 +47,9 @@ namespace ClassJukeox
                 // Ouverture de la connexion SQL
                 bdd.GetConnection().Open();
 
-                // Création d'une commande SQL en fonction de l'objet connection
+                // Création d'une commande SQL 
                 MySqlCommand cmd = bdd.GetConnection().CreateCommand();
-
-
+                //Requête SQL dans la commande
                 cmd.CommandText = "SELECT id FROM CD WHERE titre = @titre and duree= @duree and artiste= @artiste and nbpiste=@nbpiste and prix=@prix;";
                 // utilisation de l'objet contact passé en paramètre
                 cmd.Parameters.AddWithValue("@titre", cd.Titre);
@@ -82,6 +82,7 @@ namespace ClassJukeox
             }
         }
 
+        //Met à jour un CD dans la table CD 
         public void UpdateCD(CD cd, int id)
         {
             Bdd bdd = new Bdd();
@@ -102,6 +103,7 @@ namespace ClassJukeox
             bdd.GetConnection().Close();
         }
 
+        //Ajoute un CD dans la table CD et ajoute son id dans la table SUPPORT 
         public void AddCd(CD cd)
         {
             Bdd bdd = new Bdd();
@@ -117,11 +119,12 @@ namespace ClassJukeox
                 //A l'ajout d'un CD, je récupère l'id le plus grand +1 pour éviter les doublons
                 MySqlCommand cmdId = new MySqlCommand("select max(id) from cd", bdd.GetConnection());
                 string monId = cmdId.ExecuteScalar().ToString();
+                //Si la table est vide on initialise à l'id à 1
                 if (monId == "")
                 {
                     id = 1;
                 }
-                else
+                else //Sinon création de l'id avec le chiffre 1 en avant, ex: 1; 10; 11; 12; 100; 101; 102; 123; etc 
                 {
                     monId = monId.Substring(1);
                     if (monId == "")
@@ -171,6 +174,8 @@ namespace ClassJukeox
         #endregion
 
         #region "Méthodes DVD"
+
+        //Supprime le DVD de la table DVD et supprime son id dans la table SUPPORT
         public void DeleteDvd(DVD dvd)
         {
             Bdd bdd = new Bdd();
@@ -215,6 +220,7 @@ namespace ClassJukeox
             }
         }
 
+        //Met à jour un DVD dans la table DVD 
         public void UpdateDVD(DVD dvd, int id)
         {
             Bdd bdd = new Bdd();
@@ -233,6 +239,7 @@ namespace ClassJukeox
             bdd.GetConnection().Close();
         }
 
+        //Ajoute un DVD dans la table DVD et ajoute son id dans la table SUPPORT 
         public void AddDvd(DVD dvd)
         {
             Bdd bdd = new Bdd();
@@ -397,6 +404,60 @@ namespace ClassJukeox
             cmd.ExecuteNonQuery();
             bdd.GetConnection().Close();
         }
+        #endregion
+
+        //EN COURS
+        #region "Méthodes FicheEmprunt"
+        /*public void addFicheEmprunt(FicheEmprunt ficheEmprunt)
+        {
+            Bdd bdd = new Bdd();
+            int id;
+            try
+            {
+                // Ouverture de la connexion SQL
+                bdd.GetConnection().Open();
+
+                MySqlCommand cmdId1 = new MySqlCommand("select idsupport from ficheemprunt", bdd.GetConnection());
+                string monId1 = cmdId1.ExecuteScalar().ToString();
+
+                // Création d'une commande SQL en fonction de l'objet connection
+                MySqlCommand cmd = bdd.GetConnection().CreateCommand();
+                MySqlCommand cmdId = new MySqlCommand("select max(id)+1 from ficheemprunt", bdd.GetConnection());
+                string monId = cmdId.ExecuteScalar().ToString();
+                if (monId == "")
+                {
+                    id = 1;
+                }
+                else
+                {
+                    id = Convert.ToInt32(monId);
+                }
+
+                // Requête SQL
+                cmd.CommandText = "INSERT INTO fichemeprunt (id,nom, prenom, adressemail, dateI, nbEmprunts, nbEmpruntsDepasses, nbEmpruntsEnCours) VALUES  (@id,@nom, @prenom, @adressemail, @dateI, @nbE, @nbED, @nbEEC);";
+
+                // utilisation de l'objet contact passé en paramètre
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@nom", ficheEmprunt.UnSupport);
+                cmd.Parameters.AddWithValue("@prenom", adherent.Prenom);
+                cmd.Parameters.AddWithValue("@adressemail", adherent.Adressemail);
+                cmd.Parameters.AddWithValue("@dateI", adherent.DateInscription);
+                cmd.Parameters.AddWithValue("@nbE", adherent.NbEmprunts);
+                cmd.Parameters.AddWithValue("@nbED", adherent.NbEmpruntsDepasses);
+                cmd.Parameters.AddWithValue("@nbEEC", adherent.NbEmpruntsEnCours);
+
+                // Exécution de la commande SQL
+                cmd.ExecuteNonQuery();
+
+                // Fermeture de la connexion
+                bdd.GetConnection().Close();
+            }
+            catch
+            {
+                // Gestion des erreurs :
+
+            }
+        }*/
         #endregion
 
     }

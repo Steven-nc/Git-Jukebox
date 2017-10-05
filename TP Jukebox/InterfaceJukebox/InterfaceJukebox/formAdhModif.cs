@@ -12,8 +12,10 @@ namespace InterfaceJukebox
             InitializeComponent();
         }
 
+        //Méthode pour récupérer l'adhérent à modifier
         public Adherent MonAdherent { get; set; }
 
+        //Initialisation du formulaire avec les données de l'adhérent
         private void formAdhModif_Load(object sender, EventArgs e)
         {
             try
@@ -33,6 +35,7 @@ namespace InterfaceJukebox
             }
         }
 
+        //Bouton VALIDER, met à jour les informations entrées
         private void btnvalider_Click(object sender, EventArgs e)
         {
             try
@@ -41,7 +44,7 @@ namespace InterfaceJukebox
                 Bdd bdd = new Bdd();
                 bdd.GetConnection().Open();
 
-                //Je récupère l'id du CD récupéré 
+                //Je récupère l'id de l'adhérent récupéré 
                 MySqlCommand cmd = new MySqlCommand("SELECT id FROM ADHERENT WHERE nom = @nom and prenom=@prenom and adressemail=@adressemail;", bdd.GetConnection());
                 cmd.Parameters.AddWithValue("@nom", MonAdherent.Nom);
                 cmd.Parameters.AddWithValue("@prenom", MonAdherent.Prenom);
@@ -59,7 +62,7 @@ namespace InterfaceJukebox
 
                 Adherent leAdherent = new Adherent(nom, prenom, adressemail, dateins, nbE, nbED, nbEEC);
 
-                //Méthode pour modifié le CD récupéré en l'identifiant avec son id 
+                //Méthode pour modifié l'adhérent récupéré en l'identifiant avec son id 
                 bdd.updateAdh(leAdherent, id);
                 lblnotif.Text = "Les informations de l'adhérent ont été modifié.";
 
@@ -72,6 +75,7 @@ namespace InterfaceJukebox
             }
         }
 
+        //Bouton RETOUR
         private void btnretour_Click(object sender, EventArgs e)
         {
             formAdh menuAdh = new formAdh();
