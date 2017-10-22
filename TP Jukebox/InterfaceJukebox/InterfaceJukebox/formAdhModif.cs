@@ -26,8 +26,6 @@ namespace InterfaceJukebox
                 txtAdressemail.Text = MonAdherent.Adressemail;
                 lbldateins.Text = MonAdherent.DateInscription.ToShortDateString();
                 lblnbe.Text = MonAdherent.NbEmprunts.ToString();
-                lblnbed.Text = MonAdherent.NbEmpruntsDepasses.ToString();
-                lblnbeec.Text = MonAdherent.NbEmpruntsEnCours.ToString();
             }
             catch (Exception ex)
             {
@@ -57,10 +55,8 @@ namespace InterfaceJukebox
                 string adressemail = txtAdressemail.Text;
                 DateTime dateins = Convert.ToDateTime(lbldateins.Text);
                 int nbE = Convert.ToInt32(lblnbe.Text);
-                int nbED = Convert.ToInt32(lblnbed.Text);
-                int nbEEC = Convert.ToInt32(lblnbeec.Text);
 
-                Adherent leAdherent = new Adherent(nom, prenom, adressemail, dateins, nbE, nbED, nbEEC);
+                Adherent leAdherent = new Adherent(nom, prenom, adressemail, dateins, nbE);
 
                 //Méthode pour modifié l'adhérent récupéré en l'identifiant avec son id 
                 bdd.updateAdh(leAdherent, id);

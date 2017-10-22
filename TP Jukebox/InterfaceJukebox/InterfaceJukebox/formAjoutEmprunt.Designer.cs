@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.cbAdh = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbSup = new System.Windows.Forms.ComboBox();
+            this.btnValider = new System.Windows.Forms.Button();
+            this.btnAnnuler = new System.Windows.Forms.Button();
+            this.lblnotif = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -40,14 +46,78 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Adhérent:";
             // 
+            // cbAdh
+            // 
+            this.cbAdh.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbAdh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbAdh.FormattingEnabled = true;
+            this.cbAdh.Location = new System.Drawing.Point(119, 26);
+            this.cbAdh.Name = "cbAdh";
+            this.cbAdh.Size = new System.Drawing.Size(178, 21);
+            this.cbAdh.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(29, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Support";
+            // 
+            // cbSup
+            // 
+            this.cbSup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbSup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbSup.FormattingEnabled = true;
+            this.cbSup.Location = new System.Drawing.Point(119, 70);
+            this.cbSup.Name = "cbSup";
+            this.cbSup.Size = new System.Drawing.Size(178, 21);
+            this.cbSup.TabIndex = 3;
+            // 
+            // btnValider
+            // 
+            this.btnValider.Location = new System.Drawing.Point(270, 135);
+            this.btnValider.Name = "btnValider";
+            this.btnValider.Size = new System.Drawing.Size(75, 23);
+            this.btnValider.TabIndex = 4;
+            this.btnValider.Text = "Valider";
+            this.btnValider.UseVisualStyleBackColor = true;
+            this.btnValider.Click += new System.EventHandler(this.btnValider_Click);
+            // 
+            // btnAnnuler
+            // 
+            this.btnAnnuler.Location = new System.Drawing.Point(12, 135);
+            this.btnAnnuler.Name = "btnAnnuler";
+            this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
+            this.btnAnnuler.TabIndex = 5;
+            this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
+            // 
+            // lblnotif
+            // 
+            this.lblnotif.AutoSize = true;
+            this.lblnotif.Location = new System.Drawing.Point(29, 108);
+            this.lblnotif.Name = "lblnotif";
+            this.lblnotif.Size = new System.Drawing.Size(0, 13);
+            this.lblnotif.TabIndex = 6;
+            // 
             // formAjoutEmprunt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 397);
+            this.ClientSize = new System.Drawing.Size(357, 170);
+            this.Controls.Add(this.lblnotif);
+            this.Controls.Add(this.btnAnnuler);
+            this.Controls.Add(this.btnValider);
+            this.Controls.Add(this.cbSup);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cbAdh);
             this.Controls.Add(this.label1);
             this.Name = "formAjoutEmprunt";
             this.Text = "Effectuer un emprunt";
+            this.Load += new System.EventHandler(this.formAjoutEmprunt_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -56,5 +126,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbAdh;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbSup;
+        private System.Windows.Forms.Button btnValider;
+        private System.Windows.Forms.Button btnAnnuler;
+        private System.Windows.Forms.Label lblnotif;
     }
 }

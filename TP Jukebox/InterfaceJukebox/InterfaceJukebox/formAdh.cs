@@ -19,37 +19,6 @@ namespace InterfaceJukebox
             InitializeComponent();
         }
 
-        //Initialisation du tableau
-        private void formAdh_Load_1(object sender, EventArgs e)
-        {
-            Bdd bdd = new Bdd();
-
-            try
-            {
-                // Ouverture de la connexion SQL
-                bdd.GetConnection().Open();
-                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter("select * from adherent", bdd.GetConnection());
-                DataSet DS = new DataSet();
-                mySqlDataAdapter.Fill(DS); 
-                dgvAdh.DataSource = DS.Tables[0];
-                dgvAdh.Columns[0].Visible = false;
-                dgvAdh.Columns["nom"].HeaderText = "Nom";
-                dgvAdh.Columns["prenom"].HeaderText = "Prénom";
-                dgvAdh.Columns["adressemail"].HeaderText = "Email";
-                dgvAdh.Columns["dateI"].HeaderText = "Inscrit le";
-                dgvAdh.Columns["nbEmprunts"].HeaderText = "Total emprunts";
-                dgvAdh.Columns["nbEmpruntsDepasses"].HeaderText = "Emprunt(s) dépassé(s)";
-                dgvAdh.Columns["nbEmpruntsEnCours"].HeaderText = "Emprunt(s) en cours";
-                // Fermeture de la connexion
-                bdd.GetConnection().Close();
-            }
-            catch
-            {
-                // Gestion des erreurs :
-
-            }
-        }
-
         //Bouton AJOUTER
         private void btnAddAdh_Click(object sender, EventArgs e)
         {
@@ -73,7 +42,7 @@ namespace InterfaceJukebox
                     DateTime dateI = DateTime.Now;
 
                     //Création de l'adhérent
-                    Adherent adherent = new Adherent(nom, prenom, adressemail, dateI, 0, 0, 0);
+                    Adherent adherent = new Adherent(nom, prenom, adressemail, dateI, 0);
 
                     //Insertion de l'adhérent
                     bdd.addAdh(adherent);
@@ -92,6 +61,17 @@ namespace InterfaceJukebox
                         txtnotif.Text = "L'adhérent a été ajoutée.";
                     }
                 }
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter("select * from adherent", bdd.GetConnection());
+                DataSet DS = new DataSet();
+                mySqlDataAdapter.Fill(DS);
+                dgvAdh.DataSource = DS.Tables[0];
+                dgvAdh.Columns[0].Visible = false;
+                dgvAdh.Columns["nom"].HeaderText = "Nom";
+                dgvAdh.Columns["prenom"].HeaderText = "Prénom";
+                dgvAdh.Columns["adressemail"].HeaderText = "Email";
+                dgvAdh.Columns["dateI"].HeaderText = "Inscrit le";
+                dgvAdh.Columns["nbEmprunts"].HeaderText = "Total emprunts";
+
             }
             catch (Exception ex)
             {
@@ -120,11 +100,9 @@ namespace InterfaceJukebox
                     string adressemail = row.Cells[3].Value.ToString();
                     DateTime dateIns = Convert.ToDateTime(row.Cells[4].Value.ToString());
                     int nbE = Convert.ToInt32(row.Cells[5].Value.ToString());
-                    int nbED = Convert.ToInt32(row.Cells[6].Value.ToString());
-                    int nbEEC = Convert.ToInt32(row.Cells[7].Value.ToString());
 
                     //Création de l'adhérent avec les informations récupérées du tableau 
-                    Adherent adherent = new Adherent(nom, prenom, adressemail, dateIns, nbE, nbED, nbEEC);
+                    Adherent adherent = new Adherent(nom, prenom, adressemail, dateIns, nbE);
                     bdd.deleteAdh(adherent);
                     dgvAdh.Rows.RemoveAt(this.dgvAdh.SelectedRows[0].Index);
 
@@ -168,8 +146,6 @@ namespace InterfaceJukebox
                 dgvAdh.Columns["adressemail"].HeaderText = "Email";
                 dgvAdh.Columns["dateI"].HeaderText = "Inscrit le";
                 dgvAdh.Columns["nbEmprunts"].HeaderText = "Total emprunts";
-                dgvAdh.Columns["nbEmpruntsDepasses"].HeaderText = "Emprunt(s) dépassé(s)";
-                dgvAdh.Columns["nbEmpruntsEnCours"].HeaderText = "Emprunt(s) en cours";
                 // Fermeture de la connexion
                 bdd.GetConnection().Close();
             }
@@ -194,10 +170,8 @@ namespace InterfaceJukebox
                 string adressemail = dgvAdh.Rows[index].Cells[3].Value.ToString();
                 DateTime dateIns = Convert.ToDateTime(dgvAdh.Rows[index].Cells[4].Value.ToString());
                 int nbE = Convert.ToInt32(dgvAdh.Rows[index].Cells[5].Value.ToString());
-                int nbED = Convert.ToInt32(dgvAdh.Rows[index].Cells[6].Value.ToString());
-                int nbEEC = Convert.ToInt32(dgvAdh.Rows[index].Cells[7].Value.ToString());
                 //Création de l'adhérent pour le passer au formulaire formAdhModif
-                Adherent adherent = new Adherent(nom, prenom, adressemail, dateIns, nbE, nbED, nbEEC);
+                Adherent adherent = new Adherent(nom, prenom, adressemail, dateIns, nbE);
 
                 bdd.GetConnection().Close();
                 formAdhModif modifAdh = new formAdhModif();
@@ -218,6 +192,38 @@ namespace InterfaceJukebox
             Acceuil acceuil = new Acceuil();
             acceuil.Show();
             this.Close();
+        }
+
+        private void formAdh_Load(object sender, EventArgs e)
+        {
+            Bdd bdd = new Bdd();
+
+            try
+            {
+                // Ouverture de la connexion SQL
+                bdd.GetConnection().Open();
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter("select * from adherent", bdd.GetConnection());
+                DataSet DS = new DataSet();
+                mySqlDataAdapter.Fill(DS);
+                dgvAdh.DataSource = DS.Tables[0];
+                dgvAdh.Columns["id"].Visible = false;
+                dgvAdh.Columns["nom"].HeaderText = "Nom";
+                dgvAdh.Columns["prenom"].HeaderText = "Prénom";
+                dgvAdh.Columns["adressemail"].HeaderText = "Email";
+                dgvAdh.Columns["dateI"].HeaderText = "Inscrit le";
+                dgvAdh.Columns["dateI"].ReadOnly = true;
+                dgvAdh.Columns["nbEmprunts"].HeaderText = "Total emprunts";
+                dgvAdh.Columns["nbEmprunts"].ReadOnly = true;
+                dgvAdh.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                // Fermeture de la connexion
+                bdd.GetConnection().Close();
+            }
+            catch(MySqlException ee)
+            {
+                // Gestion des erreurs :
+                txtnotif.Text = ee.Message;
+            }
         }
     }
 }

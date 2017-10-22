@@ -4,6 +4,7 @@ using System.Data;
 using System.Windows.Forms;
 using ClassJukeox;
 using MySql.Data.MySqlClient;
+using System.Drawing;
 #endregion
 
 namespace InterfaceJukebox
@@ -40,9 +41,12 @@ namespace InterfaceJukebox
                 dgvCD.Columns["nbpiste"].HeaderText = "Nombre de piste";
                 dgvCD.Columns["prix"].HeaderText = "Prix (xcfp)";
                 dgvCD.Columns["commentaire"].HeaderText = "Commentaire";
-
+                dgvCD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 // Fermeture de la connexion
                 bdd.GetConnection().Close();
+
+
+                    
             }
             catch (Exception ex)
             {

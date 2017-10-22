@@ -9,44 +9,35 @@ namespace ClassJukeox
     public class FicheEmprunt
     {
 
-        private Support unSupport;
-        private Adherent unAdherent;
+        private int idSupport;
+        private int idAdherent;
         private DateTime dateEmprunt;
         private DateTime dateLimite;
         private bool depasse;
 
-        public FicheEmprunt(Support unSupport, Adherent unAdherent, DateTime dateEmprunt, DateTime dateLimite, bool depasse)
-        {
-            this.unSupport = unSupport;
-            this.unAdherent = unAdherent;
-            this.dateEmprunt = dateEmprunt;
-            this.dateLimite = dateLimite;
-            this.depasse = depasse;
-        }
-
-        public Support UnSupport
+        public int IdSupport
         {
             get
             {
-                return unSupport;
+                return idSupport;
             }
 
             set
             {
-                unSupport = value;
+                idSupport = value;
             }
         }
 
-        public Adherent UnAdherent
+        public int IdAdherent
         {
             get
             {
-                return unAdherent;
+                return idAdherent;
             }
 
             set
             {
-                unAdherent = value;
+                idAdherent = value;
             }
         }
 
@@ -87,6 +78,15 @@ namespace ClassJukeox
             {
                 depasse = value;
             }
+        }
+
+        public FicheEmprunt(int idSupport, int idAdherent, DateTime dateEmprunt, DateTime dateLimite, bool depasse)
+        {
+            this.idSupport = idSupport;
+            this.idAdherent = idAdherent;
+            this.dateEmprunt = dateEmprunt;
+            this.dateLimite = dateLimite;
+            this.depasse = depasse;
         }
     }
 }

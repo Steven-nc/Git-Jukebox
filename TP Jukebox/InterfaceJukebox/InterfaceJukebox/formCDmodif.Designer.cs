@@ -125,14 +125,14 @@
             // 
             this.textTitreCD.Location = new System.Drawing.Point(127, 46);
             this.textTitreCD.Name = "textTitreCD";
-            this.textTitreCD.Size = new System.Drawing.Size(100, 20);
+            this.textTitreCD.Size = new System.Drawing.Size(174, 20);
             this.textTitreCD.TabIndex = 8;
             // 
             // textDureeCD
             // 
             this.textDureeCD.Location = new System.Drawing.Point(127, 69);
             this.textDureeCD.Name = "textDureeCD";
-            this.textDureeCD.Size = new System.Drawing.Size(100, 20);
+            this.textDureeCD.Size = new System.Drawing.Size(42, 20);
             this.textDureeCD.TabIndex = 9;
             // 
             // checkStockCD
@@ -149,14 +149,14 @@
             // 
             this.textArtisteCD.Location = new System.Drawing.Point(127, 127);
             this.textArtisteCD.Name = "textArtisteCD";
-            this.textArtisteCD.Size = new System.Drawing.Size(100, 20);
+            this.textArtisteCD.Size = new System.Drawing.Size(174, 20);
             this.textArtisteCD.TabIndex = 11;
             // 
             // textNombredepistesCD
             // 
             this.textNombredepistesCD.Location = new System.Drawing.Point(127, 153);
             this.textNombredepistesCD.Name = "textNombredepistesCD";
-            this.textNombredepistesCD.Size = new System.Drawing.Size(100, 20);
+            this.textNombredepistesCD.Size = new System.Drawing.Size(42, 20);
             this.textNombredepistesCD.TabIndex = 12;
             // 
             // textPrixCD
@@ -170,12 +170,12 @@
             // 
             this.textCommentaireCD.Location = new System.Drawing.Point(127, 209);
             this.textCommentaireCD.Name = "textCommentaireCD";
-            this.textCommentaireCD.Size = new System.Drawing.Size(100, 20);
+            this.textCommentaireCD.Size = new System.Drawing.Size(174, 20);
             this.textCommentaireCD.TabIndex = 14;
             // 
             // btnvalider
             // 
-            this.btnvalider.Location = new System.Drawing.Point(206, 277);
+            this.btnvalider.Location = new System.Drawing.Point(281, 276);
             this.btnvalider.Name = "btnvalider";
             this.btnvalider.Size = new System.Drawing.Size(75, 23);
             this.btnvalider.TabIndex = 15;
@@ -213,7 +213,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(293, 311);
+            this.ClientSize = new System.Drawing.Size(368, 311);
             this.Controls.Add(this.textUtil);
             this.Controls.Add(this.idCD);
             this.Controls.Add(this.btnretour);

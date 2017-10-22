@@ -36,6 +36,7 @@ namespace InterfaceJukebox
                 dgvDVD.Columns["enstock"].HeaderText = "En stock";
                 dgvDVD.Columns["metteurenscene"].HeaderText = "Metteur en scène";
                 dgvDVD.Columns["commentaire"].HeaderText = "Commentaire";
+                dgvDVD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 // Fermeture de la connexion
                 bdd.GetConnection().Close();
             }

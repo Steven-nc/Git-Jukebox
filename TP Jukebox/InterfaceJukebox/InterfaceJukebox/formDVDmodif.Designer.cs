@@ -102,28 +102,28 @@
             // 
             this.textTitreDVD.Location = new System.Drawing.Point(142, 46);
             this.textTitreDVD.Name = "textTitreDVD";
-            this.textTitreDVD.Size = new System.Drawing.Size(100, 20);
+            this.textTitreDVD.Size = new System.Drawing.Size(172, 20);
             this.textTitreDVD.TabIndex = 6;
             // 
             // textDureeDVD
             // 
             this.textDureeDVD.Location = new System.Drawing.Point(142, 69);
             this.textDureeDVD.Name = "textDureeDVD";
-            this.textDureeDVD.Size = new System.Drawing.Size(100, 20);
+            this.textDureeDVD.Size = new System.Drawing.Size(46, 20);
             this.textDureeDVD.TabIndex = 7;
             // 
             // textMetteur
             // 
             this.textMetteur.Location = new System.Drawing.Point(142, 127);
             this.textMetteur.Name = "textMetteur";
-            this.textMetteur.Size = new System.Drawing.Size(100, 20);
+            this.textMetteur.Size = new System.Drawing.Size(172, 20);
             this.textMetteur.TabIndex = 8;
             // 
             // textCommentaireDVD
             // 
             this.textCommentaireDVD.Location = new System.Drawing.Point(142, 154);
             this.textCommentaireDVD.Name = "textCommentaireDVD";
-            this.textCommentaireDVD.Size = new System.Drawing.Size(100, 20);
+            this.textCommentaireDVD.Size = new System.Drawing.Size(172, 20);
             this.textCommentaireDVD.TabIndex = 9;
             // 
             // checkStockDVD
@@ -148,7 +148,7 @@
             // 
             // btnvalider
             // 
-            this.btnvalider.Location = new System.Drawing.Point(197, 226);
+            this.btnvalider.Location = new System.Drawing.Point(271, 226);
             this.btnvalider.Name = "btnvalider";
             this.btnvalider.Size = new System.Drawing.Size(75, 23);
             this.btnvalider.TabIndex = 12;
@@ -168,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(358, 261);
             this.Controls.Add(this.textUtil);
             this.Controls.Add(this.btnvalider);
             this.Controls.Add(this.btnretour);

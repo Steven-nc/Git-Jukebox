@@ -21,4 +21,6 @@ J'adapterai mon application au fur et à mesure de l'ajout de cette fonction mais
 j'aimerai une confirmation pour savoir si je peux le faire en restant dans le cadre
 du projet. 
 
+lien git: https://github.com/Steven-nc/Git-Jukebox
+
 Merci 

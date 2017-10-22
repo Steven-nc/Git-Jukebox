@@ -44,6 +44,7 @@ namespace InterfaceJukebox
 
         private void btnvalider_Click(object sender, EventArgs e)
         {
+            Boolean enstock;
             try
             {
 
@@ -59,7 +60,7 @@ namespace InterfaceJukebox
                 string titre = textTitreDVD.Text;
                 string maduree = textDureeDVD.Text;
                 int duree = Convert.ToInt32(maduree);
-                Boolean enstock = checkStockDVD.Checked;
+                enstock = checkStockDVD.Checked;
                 string metteurenscene = textMetteur.Text;
                 string commentaire = textCommentaireDVD.Text;
                 DVD leDVD= new DVD(titre, duree, enstock, commentaire, metteurenscene);

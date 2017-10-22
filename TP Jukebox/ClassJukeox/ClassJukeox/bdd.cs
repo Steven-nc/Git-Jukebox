@@ -23,8 +23,8 @@ namespace ClassJukeox
         // Méthode pour initialiser la connexion
         private void InitConnexion()
         {
-            // Création de la chaîne de connexion
-            string connectionString = "SERVER=127.0.0.1; DATABASE=jukebox; UID=root; PASSWORD=''; SslMode=none";
+            // Création de la chaîne de connexion; IPUBUNTU =192.168.232.139; mdp = root
+            string connectionString = "SERVER=127.0.0.1; DATABASE=jukebox; UID=root; PASSWORD=''; SslMode=none;Convert Zero Datetime=True";
             connection = new MySqlConnection(connectionString);
         }
 
@@ -226,7 +226,7 @@ namespace ClassJukeox
             Bdd bdd = new Bdd();
             bdd.GetConnection().Open();
             MySqlCommand cmd = bdd.GetConnection().CreateCommand();
-            cmd.CommandText = "update dvd set titre = @titre, duree= @duree, metteurenscene=@metteurenscene, commentaire= @commentaire WHERE id=@id;";
+            cmd.CommandText = "update dvd set titre = @titre, duree= @duree, enstock = @enstock, metteurenscene=@metteurenscene, commentaire= @commentaire WHERE id=@id;";
 
             // utilisation de l'objet contact passé en paramètre
             cmd.Parameters.AddWithValue("@id", id);
@@ -329,7 +329,7 @@ namespace ClassJukeox
                 }
 
                 // Requête SQL
-                cmd.CommandText = "INSERT INTO adherent (id,nom, prenom, adressemail, dateI, nbEmprunts, nbEmpruntsDepasses, nbEmpruntsEnCours) VALUES  (@id,@nom, @prenom, @adressemail, @dateI, @nbE, @nbED, @nbEEC);";
+                cmd.CommandText = "INSERT INTO adherent (id,nom, prenom, adressemail, dateI, nbEmprunts) VALUES  (@id,@nom, @prenom, @adressemail, @dateI, @nbE);";
 
                 // utilisation de l'objet contact passé en paramètre
                 cmd.Parameters.AddWithValue("@id", id);
@@ -338,8 +338,6 @@ namespace ClassJukeox
                 cmd.Parameters.AddWithValue("@adressemail", adherent.Adressemail);
                 cmd.Parameters.AddWithValue("@dateI", adherent.DateInscription);
                 cmd.Parameters.AddWithValue("@nbE", adherent.NbEmprunts);
-                cmd.Parameters.AddWithValue("@nbED", adherent.NbEmpruntsDepasses);
-                cmd.Parameters.AddWithValue("@nbEEC", adherent.NbEmpruntsEnCours);
 
                 // Exécution de la commande SQL
                 cmd.ExecuteNonQuery();
@@ -392,23 +390,20 @@ namespace ClassJukeox
             bdd.GetConnection().Open();
             MySqlCommand cmd = bdd.GetConnection().CreateCommand();
             //Requête de modification du CD passé en paramètre avec son id que j'aurai récupéré auparavant
-            cmd.CommandText = "update adherent set nom = @nom, prenom=@prenom, adressemail=@adressemail, dateI=@dateIns, nbEmprunts = @nbE, nbEmpruntsDepasses = @nbED, nbEmpruntsEnCours=@nbEEC WHERE id=@id;";
+            cmd.CommandText = "update adherent set nom = @nom, prenom=@prenom, adressemail=@adressemail, dateI=@dateIns, nbEmprunts = @nbE WHERE id=@id;";
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@nom", adherent.Nom);
             cmd.Parameters.AddWithValue("@prenom", adherent.Prenom);
             cmd.Parameters.AddWithValue("@adressemail", adherent.Adressemail);
             cmd.Parameters.AddWithValue("@dateIns", adherent.DateInscription);
             cmd.Parameters.AddWithValue("@nbE", adherent.NbEmprunts);
-            cmd.Parameters.AddWithValue("@nbED", adherent.NbEmpruntsDepasses);
-            cmd.Parameters.AddWithValue("@nbEEC", adherent.NbEmpruntsEnCours);
             cmd.ExecuteNonQuery();
             bdd.GetConnection().Close();
         }
         #endregion
-
-        //EN COURS
+        
         #region "Méthodes FicheEmprunt"
-        /*public void addFicheEmprunt(FicheEmprunt ficheEmprunt)
+        public void addFicheEmprunt(FicheEmprunt ficheEmprunt)
         {
             Bdd bdd = new Bdd();
             int id;
@@ -416,9 +411,6 @@ namespace ClassJukeox
             {
                 // Ouverture de la connexion SQL
                 bdd.GetConnection().Open();
-
-                MySqlCommand cmdId1 = new MySqlCommand("select idsupport from ficheemprunt", bdd.GetConnection());
-                string monId1 = cmdId1.ExecuteScalar().ToString();
 
                 // Création d'une commande SQL en fonction de l'objet connection
                 MySqlCommand cmd = bdd.GetConnection().CreateCommand();
@@ -434,20 +426,43 @@ namespace ClassJukeox
                 }
 
                 // Requête SQL
-                cmd.CommandText = "INSERT INTO fichemeprunt (id,nom, prenom, adressemail, dateI, nbEmprunts, nbEmpruntsDepasses, nbEmpruntsEnCours) VALUES  (@id,@nom, @prenom, @adressemail, @dateI, @nbE, @nbED, @nbEEC);";
+                cmd.CommandText = "INSERT INTO ficheemprunt VALUES (@id, @idsupport, @idadherent, @dateE, @dateL, @depasse)";
 
                 // utilisation de l'objet contact passé en paramètre
                 cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@nom", ficheEmprunt.UnSupport);
-                cmd.Parameters.AddWithValue("@prenom", adherent.Prenom);
-                cmd.Parameters.AddWithValue("@adressemail", adherent.Adressemail);
-                cmd.Parameters.AddWithValue("@dateI", adherent.DateInscription);
-                cmd.Parameters.AddWithValue("@nbE", adherent.NbEmprunts);
-                cmd.Parameters.AddWithValue("@nbED", adherent.NbEmpruntsDepasses);
-                cmd.Parameters.AddWithValue("@nbEEC", adherent.NbEmpruntsEnCours);
+                cmd.Parameters.AddWithValue("@idsupport", ficheEmprunt.IdSupport);
+                cmd.Parameters.AddWithValue("@idadherent", ficheEmprunt.IdAdherent);
+                cmd.Parameters.AddWithValue("@dateE", ficheEmprunt.DateEmprunt);
+                cmd.Parameters.AddWithValue("@dateL", ficheEmprunt.DateLimite);
+                cmd.Parameters.AddWithValue("@depasse", ficheEmprunt.Depasse);
+                
 
                 // Exécution de la commande SQL
                 cmd.ExecuteNonQuery();
+
+                if (ficheEmprunt.IdSupport.ToString().StartsWith("1"))
+                {
+                    cmd.CommandText = "UPDATE CD SET enstock = 0 where id = @id";
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@id", ficheEmprunt.IdSupport);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                if (ficheEmprunt.IdSupport.ToString().StartsWith("2"))
+                {
+                    cmd.CommandText = "UPDATE DVD SET enstock = 0 where id = @id";
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@id", ficheEmprunt.IdSupport);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                cmd.CommandText = "UPDATE ADHERENT SET nbEmprunts=nbEmprunts +1 where id = @id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", ficheEmprunt.IdAdherent);
+                cmd.ExecuteNonQuery();
+
 
                 // Fermeture de la connexion
                 bdd.GetConnection().Close();
@@ -457,7 +472,61 @@ namespace ClassJukeox
                 // Gestion des erreurs :
 
             }
-        }*/
+        }
+
+        public void DeleteFicheEmprunt(int id)
+        {
+            Bdd bdd = new Bdd();
+            int idsupport;
+            try
+            {
+                // Ouverture de la connexion SQL
+                bdd.GetConnection().Open();
+
+                // Création d'une commande SQL 
+                MySqlCommand cmd = bdd.GetConnection().CreateCommand();
+                //Requête SQL dans la commande
+                cmd.CommandText = "SELECT idsupport FROM FICHEEMPRUNT WHERE id = @id;";
+                // utilisation de l'objet contact passé en paramètre
+                cmd.Parameters.AddWithValue("@id", id);
+                // Exécution de la commande SQL               
+                idsupport = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                cmd.Parameters.Clear();
+
+                if (idsupport.ToString().StartsWith("1"))
+                {
+                    cmd.CommandText = "UPDATE CD SET enstock = 1 where id = @id";
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@id", idsupport);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                if (idsupport.ToString().StartsWith("2"))
+                {
+                    cmd.CommandText = "UPDATE DVD SET enstock = 1 where id = @id";
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@id", idsupport);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Requête SQL
+                cmd.CommandText = "DELETE FROM FICHEEMPRUNT WHERE id = @id;";
+                // utilisation de l'objet contact passé en paramètre
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                // Exécution de la commande SQL
+                cmd.ExecuteNonQuery();             
+
+                // Fermeture de la connexion
+                bdd.GetConnection().Close();
+            }
+            catch
+            {
+                // Gestion des erreurs :
+            }
+        }
         #endregion
 
     }
