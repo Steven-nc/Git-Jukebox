@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 05 Octobre 2017 à 02:22
+-- Généré le :  Dim 22 Octobre 2017 à 09:41
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -31,10 +31,8 @@ CREATE TABLE IF NOT EXISTS `adherent` (
   `nom` varchar(100) NOT NULL,
   `prenom` varchar(100) NOT NULL,
   `adressemail` varchar(200) NOT NULL,
-  `dateI` datetime NOT NULL,
+  `dateI` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `nbEmprunts` int(11) DEFAULT '0',
-  `nbEmpruntsDepasses` int(11) DEFAULT '0',
-  `nbEmpruntsEnCours` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -42,11 +40,10 @@ CREATE TABLE IF NOT EXISTS `adherent` (
 -- Contenu de la table `adherent`
 --
 
-INSERT INTO `adherent` (`id`, `nom`, `prenom`, `adressemail`, `dateI`, `nbEmprunts`, `nbEmpruntsDepasses`, `nbEmpruntsEnCours`) VALUES
-(1, 'OBRY ', 'Ilona', 'obry.ilona@gmail.com', '2017-09-15 00:00:00', 3, 0, 0),
-(2, 'TONG', 'Benoit', 'yanapas', '2017-09-15 00:00:00', 0, 0, 0),
-(3, 'NGUYEN', 'Ilona', 'mail', '2017-09-15 00:00:00', 0, 0, 0),
-(4, 'VIVANCOS', 'Thomas', 'ouioui', '2017-09-15 00:00:00', 0, 0, 0);
+INSERT INTO `adherent` (`id`, `nom`, `prenom`, `adressemail`, `dateI`, `nbEmprunts`) VALUES
+(1, 'OBRY ', 'Ilona', 'obry.ilona@gmail.com', '2017-09-14 13:00:00', 5),
+(4, 'VIVANCOS', 'Thomas', 'ouioui', '2017-09-14 13:00:00', 0),
+(5, 'NGUYEN', 'Steven', 'oui@gmal.com', '2017-10-09 13:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -71,7 +68,8 @@ CREATE TABLE IF NOT EXISTS `cd` (
 --
 
 INSERT INTO `cd` (`id`, `titre`, `duree`, `enstock`, `artiste`, `nbpiste`, `prix`, `commentaire`) VALUES
-(1, 'Evolve', 40, 1, 'Imagine Dragons', 15, 3000, 'Excellent ! ');
+(1, 'drfg', 4052, 1, '"''ytrte', 15, 6666, 'oui'),
+(11, 'Evolvertyh', 999, 1, 'Moidftgf', 5, 555, 'nnser');
 
 -- --------------------------------------------------------
 
@@ -94,8 +92,9 @@ CREATE TABLE IF NOT EXISTS `dvd` (
 --
 
 INSERT INTO `dvd` (`id`, `titre`, `duree`, `enstock`, `metteurenscene`, `commentaire`) VALUES
-(2, 'Jack et la mécanique du coeur ', 94, 0, 'Mathias Malzieu', 'Bien '),
-(20, 'Cloud atlas ', 172, 1, 'Tom Tykwer', 'Wow ');
+(2, 'ertyu', 94, 1, 'Mathias Malzieu', 'Bien ezrt'),
+(20, 'oui oui', 180, 1, 'Tom Tykwerrt', 'Wow ret'),
+(21, '1', 1, 1, '1', '1');
 
 -- --------------------------------------------------------
 
@@ -107,19 +106,23 @@ CREATE TABLE IF NOT EXISTS `ficheemprunt` (
   `id` int(255) NOT NULL,
   `idsupport` int(255) NOT NULL,
   `idadherent` int(255) NOT NULL,
-  `dateEmprunt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dateLimite` timestamp NOT NULL,
+  `dateEmprunt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `dateLimite` timestamp NULL DEFAULT NULL,
   `depasse` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `ficheemprunt`
+-- Déclencheurs `ficheemprunt`
 --
-
-INSERT INTO `ficheemprunt` (`id`, `idsupport`, `idadherent`, `dateEmprunt`, `dateLimite`, `depasse`) VALUES
-(1, 2, 2, '2017-09-20 22:51:48', '2017-09-27 22:51:48', 1),
-(2, 1, 1, '2017-10-02 02:48:50', '2017-10-09 02:48:50', 0);
+DROP TRIGGER IF EXISTS `date_limite`;
+DELIMITER //
+CREATE TRIGGER `date_limite` BEFORE INSERT ON `ficheemprunt`
+ FOR EACH ROW begin 
+set new.dateLimite = date_add(new.dateEmprunt, INTERVAL 7 DAY);
+end
+//
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -139,7 +142,9 @@ CREATE TABLE IF NOT EXISTS `support` (
 INSERT INTO `support` (`id`) VALUES
 (1),
 (2),
-(20);
+(11),
+(20),
+(21);
 
 --
 -- Contraintes pour les tables exportées
@@ -161,7 +166,7 @@ DELIMITER $$
 --
 -- Événements
 --
-CREATE DEFINER=`root`@`localhost` EVENT `maj` ON SCHEDULE EVERY 1 DAY STARTS '2017-09-20 00:00:00' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE jukebox.ficheemprunt 
+CREATE DEFINER=`root`@`localhost` EVENT `maj` ON SCHEDULE EVERY 1 MINUTE STARTS '2017-09-20 00:00:00' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE jukebox.ficheemprunt 
    SET depasse = 1
    WHERE dateLimite < NOW()$$
 
