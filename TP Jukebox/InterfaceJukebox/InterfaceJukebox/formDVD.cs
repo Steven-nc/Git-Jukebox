@@ -24,6 +24,7 @@ namespace InterfaceJukebox
 
             try
             {
+                dgvDVD.BackgroundColor = System.Drawing.SystemColors.Control;
                 // Ouverture de la connexion SQL
                 bdd.GetConnection().Open();
                 MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter("select * from dvd", bdd.GetConnection());

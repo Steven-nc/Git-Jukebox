@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using ClassJukeox;
 using MySql.Data.MySqlClient;
+using System.Drawing;
 
 namespace InterfaceJukebox
 {
@@ -18,6 +19,7 @@ namespace InterfaceJukebox
         //Initialisation du formulaire avec les données de l'adhérent
         private void formAdhModif_Load(object sender, EventArgs e)
         {
+            this.BackColor = Color.White;
             try
             {
                 //Au chargement du formulaire, on initialise les données du CD récupéré

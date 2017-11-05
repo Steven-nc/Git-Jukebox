@@ -134,6 +134,7 @@ namespace InterfaceJukebox
 
             try
             {
+                
                 // Ouverture de la connexion SQL
                 bdd.GetConnection().Open();
                 MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter("select * from adherent", bdd.GetConnection());
@@ -148,6 +149,7 @@ namespace InterfaceJukebox
                 dgvAdh.Columns["nbEmprunts"].HeaderText = "Total emprunts";
                 // Fermeture de la connexion
                 bdd.GetConnection().Close();
+                
             }
             catch
             {
@@ -196,6 +198,7 @@ namespace InterfaceJukebox
 
         private void formAdh_Load(object sender, EventArgs e)
         {
+            dgvAdh.BackgroundColor = Color.White;
             Bdd bdd = new Bdd();
 
             try

@@ -1,5 +1,6 @@
 ﻿#region "Imports"
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 #endregion
 
@@ -48,6 +49,15 @@ namespace InterfaceJukebox
         }
         #endregion
 
+        private void Acceuil_Load(object sender, EventArgs e)
+        {
+            picture.Image = Image.FromFile("C:/Users/steve/Documents/Visual Studio 2015/Projects/TP Jukebox/InterfaceJukebox/InterfaceJukebox/bin/Image/image.jpg");
+            picture1.Image = Image.FromFile("C:/Users/steve/Documents/Visual Studio 2015/Projects/TP Jukebox/InterfaceJukebox/InterfaceJukebox/bin/Image/image1.jpg");
+            picture2.Image = Image.FromFile("C:/Users/steve/Documents/Visual Studio 2015/Projects/TP Jukebox/InterfaceJukebox/InterfaceJukebox/bin/Image/image2.jpg");
+            picture3.Image = Image.FromFile("C:/Users/steve/Documents/Visual Studio 2015/Projects/TP Jukebox/InterfaceJukebox/InterfaceJukebox/bin/Image/image3.jpg");
+            //this.BackColor = Color.Gold;
+
+        }
     }
 }
 

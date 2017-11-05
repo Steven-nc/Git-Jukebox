@@ -22,6 +22,7 @@ namespace InterfaceJukebox
         {
 
             Bdd bdd = new Bdd();
+            //this.BackColor = Color.Gold;
 
             try
             {
@@ -44,9 +45,11 @@ namespace InterfaceJukebox
                 dgvCD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 // Fermeture de la connexion
                 bdd.GetConnection().Close();
+                dgvCD.BackgroundColor = System.Drawing.SystemColors.Control;
 
 
-                    
+
+
             }
             catch (Exception ex)
             {

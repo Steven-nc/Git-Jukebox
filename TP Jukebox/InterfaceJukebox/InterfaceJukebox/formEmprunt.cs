@@ -26,6 +26,7 @@ namespace InterfaceJukebox
 
             try
             {
+                dgvEmprunt.BackgroundColor = System.Drawing.SystemColors.Control;
                 // Ouverture de la connexion SQL
                 bdd.GetConnection().Open();
                 MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(@"select ficheemprunt.id, dvd.titre, CONCAT(adherent.nom, ' ', adherent.prenom) as adherent, ficheemprunt.dateEmprunt, ficheemprunt.dateLimite, ficheemprunt.depasse
