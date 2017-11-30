@@ -152,10 +152,10 @@ namespace InterfaceJukebox
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception err)
             {
                 //Gestion erreurs
-                label1.Text = "Une erreur s'est produite pendant l'ajout ! " + ex.Message;
+                label1.Text = "Une erreur s'est produite pendant l'ajout ! Veuillez vérifier les données saisies.";
             }
             
         }
@@ -272,5 +272,9 @@ namespace InterfaceJukebox
         }
         #endregion
 
+        private void dgvCD_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Veuillez entrer des caractères numériques.");
+        }
     }
 }

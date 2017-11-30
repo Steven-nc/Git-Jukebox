@@ -47,6 +47,7 @@ namespace InterfaceJukebox
             this.dgvCD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCD.Size = new System.Drawing.Size(747, 237);
             this.dgvCD.TabIndex = 0;
+            this.dgvCD.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvCD_DataError);
             // 
             // btnactualisercd
             // 

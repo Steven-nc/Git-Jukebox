@@ -35,6 +35,8 @@
             this.btnValider = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
             this.lblnotif = new System.Windows.Forms.Label();
+            this.lbldate = new System.Windows.Forms.Label();
+            this.txtDate = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -77,7 +79,7 @@
             // 
             // btnValider
             // 
-            this.btnValider.Location = new System.Drawing.Point(270, 135);
+            this.btnValider.Location = new System.Drawing.Point(270, 179);
             this.btnValider.Name = "btnValider";
             this.btnValider.Size = new System.Drawing.Size(75, 23);
             this.btnValider.TabIndex = 4;
@@ -87,27 +89,45 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(12, 135);
+            this.btnAnnuler.Location = new System.Drawing.Point(12, 179);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 5;
-            this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.Text = "Retour";
             this.btnAnnuler.UseVisualStyleBackColor = true;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // lblnotif
             // 
             this.lblnotif.AutoSize = true;
-            this.lblnotif.Location = new System.Drawing.Point(29, 108);
+            this.lblnotif.Location = new System.Drawing.Point(29, 163);
             this.lblnotif.Name = "lblnotif";
             this.lblnotif.Size = new System.Drawing.Size(0, 13);
             this.lblnotif.TabIndex = 6;
+            // 
+            // lbldate
+            // 
+            this.lbldate.AutoSize = true;
+            this.lbldate.Location = new System.Drawing.Point(32, 118);
+            this.lbldate.Name = "lbldate";
+            this.lbldate.Size = new System.Drawing.Size(30, 13);
+            this.lbldate.TabIndex = 7;
+            this.lbldate.Text = "Date";
+            // 
+            // txtDate
+            // 
+            this.txtDate.Location = new System.Drawing.Point(119, 118);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(178, 20);
+            this.txtDate.TabIndex = 8;
             // 
             // formAjoutEmprunt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 170);
+            this.ClientSize = new System.Drawing.Size(357, 214);
+            this.Controls.Add(this.txtDate);
+            this.Controls.Add(this.lbldate);
             this.Controls.Add(this.lblnotif);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnValider);
@@ -132,5 +152,7 @@
         private System.Windows.Forms.Button btnValider;
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Label lblnotif;
+        private System.Windows.Forms.Label lbldate;
+        private System.Windows.Forms.TextBox txtDate;
     }
 }

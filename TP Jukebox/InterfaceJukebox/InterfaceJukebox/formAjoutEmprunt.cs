@@ -112,13 +112,24 @@ namespace InterfaceJukebox
 
                 int IDsupport = Convert.ToInt32(cbSup.Text.Split(' ').LastOrDefault());
                 int IDadherent = Convert.ToInt32(cbAdh.Text.Split(' ').LastOrDefault());
-                DateTime dateE = DateTime.Now;
+                DateTime dateE; 
+                if (String.IsNullOrEmpty(txtDate.Text))
+                {
+                    dateE = DateTime.Now;
+                }
+                else
+                {
+                    dateE = Convert.ToDateTime(txtDate.Text);
+                }
                 DateTime dateL = dateE.AddDays(7);
                 bool dep = false;
 
                 FicheEmprunt uneFiche = new FicheEmprunt(IDsupport, IDadherent, dateE, dateL, dep);
                 bdd.addFicheEmprunt(uneFiche);
-                lblnotif.Text = "Emprunt effectué";
+
+                formEmprunt menuEmprunt = new formEmprunt();
+                menuEmprunt.Show();
+                this.Hide();
             }
             catch
             {

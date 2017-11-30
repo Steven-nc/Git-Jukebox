@@ -43,6 +43,7 @@
             this.dgvDVD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDVD.Location = new System.Drawing.Point(12, 12);
             this.dgvDVD.Name = "dgvDVD";
+            this.dgvDVD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDVD.Size = new System.Drawing.Size(747, 237);
             this.dgvDVD.TabIndex = 0;
             // 

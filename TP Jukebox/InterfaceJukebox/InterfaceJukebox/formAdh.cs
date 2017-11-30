@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,6 +18,20 @@ namespace InterfaceJukebox
         public formAdh()
         {
             InitializeComponent();
+        }
+
+        public static bool IsValidEmailAddress(string emailaddress)
+        {
+            try
+            {
+                Regex rx = new Regex(
+            @"^[-!#$%&'*+/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+/0-9=?A-Z^_a-z{|}~])*@[a-zA-Z](-?[a-zA-Z0-9])*(\.[a-zA-Z](-?[a-zA-Z0-9])*)+$");
+                return rx.IsMatch(emailaddress);
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
 
         //Bouton AJOUTER
@@ -40,12 +55,14 @@ namespace InterfaceJukebox
                     string prenom = row.Cells[2].Value.ToString();
                     string adressemail = row.Cells[3].Value.ToString();
                     DateTime dateI = DateTime.Now;
+                    if (IsValidEmailAddress(adressemail))
+                    {
+                        //Création de l'adhérent
+                        Adherent adherent = new Adherent(nom, prenom, adressemail, dateI, 0);
 
-                    //Création de l'adhérent
-                    Adherent adherent = new Adherent(nom, prenom, adressemail, dateI, 0);
-
-                    //Insertion de l'adhérent
-                    bdd.addAdh(adherent);
+                        //Insertion de l'adhérent
+                        bdd.addAdh(adherent);
+                    }
                 }
 
                 bdd.GetConnection().Close();
